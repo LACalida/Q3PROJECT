@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Home - DOTr MRT-3</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" type="image/png" href="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e5/Department_of_Transportation_%28Philippines%29.svg/1024px-Department_of_Transportation_%28Philippines%29.svg.png">
+    <style>
+        footer {
+            background-color: gray;
+        }
+        mapa {
+            size: 10px;
+        }
+
+
+    </style>
+</head>
+<body>
+<nav class="navbar navbar-expand-md bg-dark navbar-dark fixed-top">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="index.html">
+                <img src="file:///C:/Users/LENOVO/Downloads/MRT%20LOGO.png" height="75">
+            </a>
+
+            <div class="collapse navbar-collapse">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item ms-3">
+                        <a class="nav-link" href="schedule.html">Transit Schedule</a>
+                    </li>
+                    <li class="nav-item ms-3">
+                        <a class="nav-link" href="contact.html">Contact Us</a>
+                    </li>
+                    <li class="nav-item ms-3">
+                        <a class="nav-link" href="tips.html">Tips and Reminders</a>
+                    </li>
+                    <li class="nav-item ms-3">
+                        <a class="nav-link" href="matrix.html">Fare Matrix</a>
+                    </li>
+                    <li class="nav-item ms-3">
+                        <a class="nav-link" href="sources.html">Sources</a>
+                    </li>
+                </ul>
+
+                <div class="text-light me-3" id="txt" ></div>
+
+                <form class="d-flex">
+                    <input class="form-control" type="text" placeholder="Search...">
+                    <button class="btn btn-light" type="button">Search</button>
+                </form>
+            </div>
+        </div>
+    </nav>
+
+    <br><br><br><br><br><br>
+<center>
+    <script>
+        function startTime() {
+            const today = new Date();
+            let h = today.getHours();
+            let m = today.getMinutes();
+            let s = today.getSeconds();
+            m = checkTime(m);
+            s = checkTime(s);
+            document.getElementById('txt').innerHTML = h + ":" + m + ":" + s;
+            setTimeout(startTime, 1000);
+        }
+
+        function checkTime(i) {
+            return (i < 10) ? "0" + i : i;
+        }
+
+        window.onload = startTime;
+    </script>
+
+<br><br>
+<div class="col-md-10">
+
+<table style="width:50%">
+<tr>
+    <td style="width:35%">
+        <form name="from" id="from">
+    <b>Leaving From:</b><br>
+    <input id="rdo_1" type="radio" value="1" name="origin" onclick="ShowFare(this.value);"><label for="rdo_1">&nbsp; North Ave.</label><br>
+    <input id="rdo_1" type="radio" value="2" name="origin" onclick="ShowFare(this.value);"><label for="rdo_1">&nbsp; Quezon Ave.</label><br>
+    <input id="rdo_1" type="radio" value="3" name="origin" onclick="ShowFare(this.value);"><label for="rdo_1">&nbsp; GMA Kamuning</label><br>
+    <input id="rdo_1" type="radio" value="4" name="origin" onclick="ShowFare(this.value);"><label for="rdo_1">&nbsp; Araneta Cubao</label><br>
+    <input id="rdo_1" type="radio" value="5" name="origin" onclick="ShowFare(this.value);"><label for="rdo_1">&nbsp; Santolan Annapolis</label><br>
+    <input id="rdo_1" type="radio" value="6" name="origin" onclick="ShowFare(this.value);"><label for="rdo_1">&nbsp; Ortigas</label><br>
+    <input id="rdo_1" type="radio" value="7" name="origin" onclick="ShowFare(this.value);"><label for="rdo_1">&nbsp; Shaw Blvd.</label><br>
+    <input id="rdo_1" type="radio" value="8" name="origin" onclick="ShowFare(this.value);"><label for="rdo_1">&nbsp; Boni</label><br>
+    <input id="rdo_1" type="radio" value="9" name="origin" onclick="ShowFare(this.value);"><label for="rdo_1">&nbsp; Guadalupe</label><br>
+    <input id="rdo_1" type="radio" value="10" name="origin" onclick="ShowFare(this.value);"><label for="rdo_1">&nbsp; Buendia</label><br>
+    <input id="rdo_1" type="radio" value="11" name="origin" onclick="ShowFare(this.value);"><label for="rdo_1">&nbsp; Ayala</label><br>
+    <input id="rdo_1" type="radio" value="12" name="origin" onclick="ShowFare(this.value);"><label for="rdo_1">&nbsp; Magallanes</label><br>
+    <input id="rdo_1" type="radio" value="13" name="origin" onclick="ShowFare(this.value);"><label for="rdo_1">&nbsp; Taft Ave.</label><br>
+    </form></td>
+    <td style="width:35%">
+    <form name="to" id="to">
+    <b>Going To:</b><br>
+    <input id="rdo_2" type="radio" value="1" name="destination" onclick="ShowFare(this.value);"><label for="rdo_2">&nbsp; North Ave.</label><br>
+    <input id="rdo_2" type="radio" value="2" name="destination" onclick="ShowFare(this.value);"><label for="rdo_2">&nbsp; Quezon Ave.</label><br>
+    <input id="rdo_2" type="radio" value="3" name="destination" onclick="ShowFare(this.value);"><label for="rdo_2">&nbsp; GMA Kamuning</label><br>
+    <input id="rdo_2" type="radio" value="4" name="destination" onclick="ShowFare(this.value);"><label for="rdo_2">&nbsp; Araneta Cubao</label><br>
+    <input id="rdo_2" type="radio" value="5" name="destination" onclick="ShowFare(this.value);"><label for="rdo_2">&nbsp; Santolan Annapolis</label><br>
+    <input id="rdo_2" type="radio" value="6" name="destination" onclick="ShowFare(this.value);"><label for="rdo_2">&nbsp; Ortigas</label><br>
+    <input id="rdo_2" type="radio" value="7" name="destination" onclick="ShowFare(this.value);"><label for="rdo_2">&nbsp; Shaw Blvd.</label><br>
+    <input id="rdo_2" type="radio" value="8" name="destination" onclick="ShowFare(this.value);"><label for="rdo_2">&nbsp; Boni</label><br>
+    <input id="rdo_2" type="radio" value="9" name="destination" onclick="ShowFare(this.value);"><label for="rdo_2">&nbsp; Guadalupe</label><br>
+    <input id="rdo_2" type="radio" value="10" name="destination" onclick="ShowFare(this.value);"><label for="rdo_2">&nbsp; Buendia</label><br>
+    <input id="rdo_2" type="radio" value="11" name="destination" onclick="ShowFare(this.value);"><label for="rdo_2">&nbsp; Ayala</label><br>
+    <input id="rdo_2" type="radio" value="12" name="destination" onclick="ShowFare(this.value);"><label for="rdo_2">&nbsp; Magallanes</label><br>
+    <input id="rdo_2" type="radio" value="13" name="destination" onclick="ShowFare(this.value);"><label for="rdo_2">&nbsp; Taft Ave.</label><br>
+    </form></td>
+     <td align="center" bgcolor="#004542" style="width:30%"><span style="color:#fff; font-size:26px;">
+<center>Ticket Price</center>
+<input type="text" style="background:#002442; color:#fff; text-align:center; border:none; font-size:57px; width:100%;margin-top: 15px;" name="valueTotal" id="valueTotal" value="" size="auto" readonly="readonly">
+<p style="text-align:center; border:none; font-size:14px;">
+<input type="checkbox" id="discountcheck" name="discountcheck" value="1" onclick="Discount();">
+<label for="discount">Senior, PWD, & Students</label><br></p>
+    </span></td>
+</div>
+
+<div id="mapa">
+    <center>
+ <img src="file:///C:/Users/LENOVO/Downloads/station-map_page-0001.jpg" id="mapa">
+</center>
+</div>
+<br>
+
+
+</tr>   
+</table>
+</p>
+</form> 
+</div>
+
+ <script type="text/javascript">
+ function ShowFare(selected)
+ {
+
+      var origin_val = 0;
+      var destination_val = 0;
+ 
+      //get the value of the selected origin and destination stations
+      if (document.from.origin[selected-1].checked == true)
+      {
+           origin_val = document.from.origin[selected-1].value;
+      }
+  
+
+      if (document.to.destination[selected-1].checked == true)
+      {
+           destination_val = document.to.destination[selected-1].value;
+      }
+   
+      //get the number of stations traversed
+      var traversed = Math.abs(destination_val - origin_val);
+
+     //display fare
+     if(traversed == 0){
+      document.getElementById('valueTotal').value = "P0.00";
+     }
+     else if (traversed <= 2 ){
+      document.getElementById('valueTotal').value = "P13.00";
+     }
+     else if ((traversed == 3 ) || (traversed == 4)){
+      document.getElementById('valueTotal').value = "P16.00";
+     }
+     else if ((traversed == 5 ) || (traversed == 6) || (traversed == 7 )){
+      document.getElementById('valueTotal').value = "P20.00";
+     }
+     else if ((traversed == 8 ) || (traversed == 9) || (traversed == 10 )){
+      document.getElementById('valueTotal').value = "P24.00";
+     }
+     else if ((traversed == 11 ) || (traversed == 12) || (traversed == 13 )){
+      document.getElementById('valueTotal').value = "P28.00";
+     }
+ 
+
+
+ }
+
+function Discount()
+ {
+      //declare variables and initialize values to zero
+      var fare = document.getElementById('valueTotal').value;
+      var discounted_fare = "";
+    
+      //check if discount is selected/checked
+      if (document.getElementById("discountcheck").checked == true)
+      { 
+    if(document.getElementById('valueTotal').value == "P0.00"){
+            discounted_fare = "P0.00";
+        }
+        else if (document.getElementById('valueTotal').value == "P13.00"){
+             discounted_fare = "P10.40";
+        }
+        else if (document.getElementById('valueTotal').value == "P16.00"){
+            discounted_fare = "P12.80";
+        }
+        else if (document.getElementById('valueTotal').value == "P20.00"){
+            discounted_fare = "P16.00";
+        }
+        else if (document.getElementById('valueTotal').value == "P24.00"){
+            discounted_fare = "P19.20";
+        }
+        else if (document.getElementById('valueTotal').value == "P28.00"){
+            discounted_fare = "P22.40";
+        }
+
+    document.getElementById('valueTotal').value = discounted_fare;
+      }
+      else
+      {
+    if(document.getElementById('valueTotal').value == "P0.00"){
+            discounted_fare = "P0.00";
+        }
+        else if (document.getElementById('valueTotal').value == "P10.40"){
+             discounted_fare = "P13.00";
+        }
+        else if (document.getElementById('valueTotal').value == "P12.80"){
+            discounted_fare = "P16.00";
+        }
+        else if (document.getElementById('valueTotal').value == "P16.00"){
+            discounted_fare = "P20.00";
+        }
+        else if (document.getElementById('valueTotal').value == "P19.20"){
+            discounted_fare = "P24.00";
+        }
+        else if (document.getElementById('valueTotal').value == "P22.40"){
+            discounted_fare = "P28.00";
+        }
+    document.getElementById('valueTotal').value = discounted_fare;
+      }
+
+ }
+ </script>
+
+<br><br>
+
+</body>
+<footer><center>© Calida and Reynoso, 2025</center></footer>
+</html>

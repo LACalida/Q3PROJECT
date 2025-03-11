@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Tips and Reminders - MRT3</title>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" type="image/png" href="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e5/Department_of_Transportation_%28Philippines%29.svg/1024px-Department_of_Transportation_%28Philippines%29.svg.png ">
+</head>
+<style>
+    footer {
+        background-color: gray;
+    }
+
+
+</style>
+
+</head>
+<body>
+ <nav class="navbar navbar-expand-md bg-dark navbar-dark fixed-top">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="index.html">
+                <img src="file:///C:/Users/LENOVO/Downloads/MRT%20LOGO.png" height="75">
+            </a>
+
+            <div class="collapse navbar-collapse">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item ms-3">
+                        <a class="nav-link" href="schedule.html">Transit Schedule</a>
+                    </li>
+                    <li class="nav-item ms-3">
+                        <a class="nav-link" href="contact.html">Contact Us</a>
+                    </li>
+                    <li class="nav-item ms-3">
+                        <a class="nav-link" href="tips.html">Tips and Reminders</a>
+                    </li>
+                    <li class="nav-item ms-3">
+                        <a class="nav-link" href="matrix.html">Fare Matrix</a>
+                    </li>
+                    <li class="nav-item ms-3">
+                        <a class="nav-link" href="sources.html">Sources</a>
+                    </li>
+                </ul>
+
+                <div class="text-light me-3" id="txt" ></div>
+
+                <form class="d-flex">
+                    <input class="form-control" type="text" placeholder="Search...">
+                    <button class="btn btn-light" type="button">Search</button>
+                </form>
+            </div>
+        </div>
+    </nav>
+
+    <br><br><br><br><br><br>
+    <script>
+        function startTime() {
+            const today = new Date();
+            let h = today.getHours();
+            let m = today.getMinutes();
+            let s = today.getSeconds();
+            m = checkTime(m);
+            s = checkTime(s);
+            document.getElementById('txt').innerHTML = h + ":" + m + ":" + s;
+            setTimeout(startTime, 1000);
+        }
+
+        function checkTime(i) {
+            return (i < 10) ? "0" + i : i;
+        }
+
+        window.onload = startTime;
+    </script>
+    <div id="page">
+<div style="text-align: center;">
+<h1>We care about YOUR safety</h1>
+<h3>Read these tips and reminders to keep your trip safe and fun!</h3>
+<br><br>
+</div>
+<div style="text-align: left; margin: auto; max-width: 800px;">
+<h5>🚆 Before Your Trip</h5>
+<p>✅ Check the Schedule – MRT-3 operates from 4:30 AM to 10:30 PM, but schedules may change, so check updates online.</p>
+<p>✅ Prepare Your Card or Fare – Use a Beep Card for faster entry or have exact fare ready for single-journey tickets.</p>
+<p>✅ Dress Comfortably – MRT-3 can get crowded, so wear light clothing and comfy shoes.</p>
+<br><br>
+<h5>🚉 At the Station</h5>
+<p>✅ Follow Security Procedures – Bags are inspected at the entrance; avoid bringing prohibited items.</p>
+<p>✅ Use the Right Lane – There are special queues for PWDs, seniors, and pregnant women.</p>
+<p>✅ Stay on the Right Side of Escalators – Let others pass on the left.</p>
+<br><br>
+<h5>🚋 Inside the Train</h5>
+<p>✅ Move to the Center – Avoid blocking doors to let others in and out smoothly.</p>
+<p>✅ Give Seats to Those in Need – Prioritize seats for seniors, PWDs, and pregnant passengers.</p>
+<p>✅ No Eating or Drinking – Help keep the train clean for everyone.</p>
+<p></p>
+<br><br>
+<h5>📢 Additional Reminders</h5>
+<p>🚫 Beware of Pickpockets – Keep your bag in front of you and secure your valuables.</p>
+<p>📍 Be Aware of Your Stop – Stations are announced, so get ready before arriving at your destination.</p>
+<p>🕒 Avoid Rush Hours – Peak times are 7:00-9:00 AM and 5:00-8:00 PM on weekdays.</p>
+</div>
+<br><br><br>
+</body>
+</html>
+
+</body>
+<footer><center>© Calida and Reynoso, 2025</center></footer>
+</html>
